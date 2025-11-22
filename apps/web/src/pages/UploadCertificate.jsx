@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function UploadCertificate() {
   const [file, setFile] = useState(null);
+  const navigate = useNavigate();
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -20,6 +22,8 @@ function UploadCertificate() {
 
       console.log(res.data);
       alert("Certificate uploaded successfully!");
+      
+      navigate(`/certificate/${res.data.certificateId}`);
 
     } catch (err) {
       console.error(err);

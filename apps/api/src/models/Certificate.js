@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const certificateSchema = new mongoose.Schema({
-  filename: String,
-  hash: String,
-  path: String,
+  filename: {type: String, required: true},
+  hash: {type: String, required: true,},
+  path: {type: String, required: true},
   uploadedAt: { type: Date, default: Date.now }
 });
 
